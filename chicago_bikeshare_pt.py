@@ -3,7 +3,6 @@
 # Começando com os imports
 import csv
 import matplotlib.pyplot as plt
-import math
 
 # Vamos ler os dados como uma lista
 print("Lendo o documento...")
@@ -54,15 +53,15 @@ for gender in range(1,21):
 input("Aperte Enter para continuar...")
 # TAREFA 3
 # TODO: Crie uma função para adicionar as colunas(features) de uma lista em outra lista, na mesma ordem
-"""
-Função para retornar uma lista com apenas uma coluna do dataset original.
-Argumentos:
-    data: O nome do dataset(list) original.
-    index: O index da coluna que deseja trasnformar em uma nova lista.
-Retorna:
-    Uma lista com os valores da coluna escolhida.
-"""
 def column_to_list(data, index):
+    """
+    Função para retornar uma lista com apenas uma coluna do dataset original.
+    Argumentos:
+        data: O nome do dataset(list) original.
+        index: O index da coluna que deseja trasnformar em uma nova lista.
+    Retorna:
+        Uma lista com os valores da coluna escolhida.
+    """
     column_list = []
     for i in range(len(data)):
       column_list.append(data[i][index])
@@ -86,15 +85,15 @@ input("Aperte Enter para continuar...")
 # Realizacao do count utilizando funcoes prontas
 # male = ' '.join(list_gender).title().count('Male')
 # female = ' '.join(list_gender).title().count('Female')
-"""
-Função para retornar a quantidade de generos de uma lista
-Argumentos:
-    data_list: O nome do dataset(list) com a coluna gender.
-    index: O index da coluna gender.
-Retorna:
-    Quantidade de pessoas do sejo Masculino e Feminino.
-"""
 def return_number_gender(data_list, index=-2):
+  """
+  Função para retornar a quantidade de generos de uma lista
+  Argumentos:
+      data_list: O nome do dataset(list) com a coluna gender.
+      index: O index da coluna gender.
+  Retorna:
+      Quantidade de pessoas do sejo Masculino e Feminino.
+  """
   male = 0
   female = 0
   list_gender = column_to_list(data_list, index)
@@ -120,14 +119,14 @@ input("Aperte Enter para continuar...")
 # TAREFA 5
 # TODO: Crie uma função para contar os gêneros. Retorne uma lista.
 # Isso deveria retornar uma lista com [count_male, count_female] (exemplo: [10, 15] significa 10 Masculinos, 15 Femininos)
-"""
-Função para retornar a quantidade de generos de uma lista
-Argumentos:
-    data_list: O nome do dataset(list) com a coluna gender.
-Retorna:
-    Uma lista com a quantidade de pessoas do sejo Masculino e Feminino.
-"""
 def count_gender(data_list):
+    """
+    Função para retornar a quantidade de generos de uma lista
+    Argumentos:
+        data_list: O nome do dataset(list) com a coluna gender.
+    Retorna:
+        Uma lista com a quantidade de pessoas do sejo Masculino e Feminino.
+    """
     return list(return_number_gender(data_list))
 
 print("\nTAREFA 5: Imprimindo o resultado de count_gender")
@@ -144,15 +143,15 @@ input("Aperte Enter para continuar...")
 # TAREFA 6
 # TODO: Crie uma função que pegue o gênero mais popular, e retorne este gênero como uma string.
 # Esperamos ver "Masculino", "Feminino", ou "Igual" como resposta.
-"""
-Função para qual sexo é maior na amostra
-Argumentos:
-    data_list: O nome do dataset(list) com a coluna gender.
-    index: O index da coluna gender.
-Retorna:
-    Qual sexo tem maior quantidade na amostra.
-"""
 def most_popular_gender(data_list):
+    """
+    Função para qual sexo é maior na amostra
+    Argumentos:
+        data_list: O nome do dataset(list) com a coluna gender.
+        index: O index da coluna gender.
+    Retorna:
+        Qual sexo tem maior quantidade na amostra.
+    """
     male, female = return_number_gender(data_list)
     answer = ''
     if male > female:
@@ -244,7 +243,7 @@ Caso a lista seja par é necessario pegar o index e o index + 1 para realizar
 a soma e dividir por 2
 '''
 if len(trip_duration_list) % 2 != 0:
-  index = math.ceil(len(trip_duration_list) / 2)
+  index = round(len(trip_duration_list) / 2)
   trip_duration_list = list(map(int, trip_duration_list))
   median_trip = sorted(trip_duration_list)[index]
 else:
@@ -254,7 +253,7 @@ else:
   median_trip = (sorted(trip_duration_list)[index] + sorted(trip_duration_list)[index]) / 2
 
 #Calculando a media
-mean_trip = math.ceil(mean_trip / len(trip_duration_list))
+mean_trip = round(mean_trip / len(trip_duration_list))
 
 print("\nTAREFA 9: Imprimindo o mínimo, máximo, média, e mediana")
 print("Min: ", min_trip, "Max: ", max_trip, "Média: ", mean_trip, "Mediana: ", median_trip)
