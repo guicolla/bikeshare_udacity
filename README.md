@@ -4,7 +4,6 @@ Project to do a calculations of bike share
 ## Prerequisites
 * Python 3.6.5
 * python3.6-tk
-* requirements.txt
  
  ## Dataset
  The dataset used in this project contains data of the first six months of 2017. The dataset contains the fields below:
